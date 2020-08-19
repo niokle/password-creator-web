@@ -1,0 +1,29 @@
+<html>
+    <meta charset="UTF-8">
+    <label for="userName">User name :</label>
+    <input type="text" id="userName"><br>
+    <label for="masterPassword">Master password :</label>
+    <input type="password" id="masterPassword"><input type="checkbox" id="showPassword" onclick="showMasterPassword()"><br>
+    <label for="appName">App name :</label>   
+    <input type="text" id="appName"><br>
+    <label for="appAddress">App address :</label>
+    <input type="text" id="appAddress"><br>
+    <label for="numberOfSigns">Number of signs :</label>
+    <input type="range" id="numberOfSigns" value="16" min="4" max="30" onchange="changeValue('nos')"><input type="text" id="numberOfSignsValue" value="16" min="4" max="30" onchange="changeValue('nosv')"><br>
+    <label for="smallLetters">Small letters - a-z :</label>
+    <input type="checkbox" id="smallLetters" checked><br>
+    <label for="largeLetters">Large letters - A-Z :</label>
+    <input type="checkbox" id="largeLetters" checked><br>
+    <label for="numbers">Numbers - 0-9 :</label>
+    <input type="checkbox" id="numbers" checked><br>
+    <label for="specialSigns">Special signs - !#$%& :</label>
+    <input type="checkbox" id="specialSigns" name="special-signs" value="special-signs" checked><br>
+    <br>
+	<button type="button" onclick="send()">Create password</button><br>
+	<br>
+	<input type="text" id="pass" readonly><button type="button" onclick="copy()">Copy password</button>
+	
+</html>
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="script.js"></script>
