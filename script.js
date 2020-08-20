@@ -29,7 +29,7 @@
 		var xhr = new XMLHttpRequest();
 		//xhr.responseType = "json";
 	
-		xhr.open('POST', apiUrl, true); /* Argument trzeci, wartość true, określa, że żądanie ma być asynchroniczne */
+		xhr.open('POST', apiUrl, true);
 		xhr.setRequestHeader("Content-Type", "application/json", "Access-Control-Allow-Origin: *");
 
 		xhr.send(json); 
@@ -40,7 +40,7 @@
 				passField.value = xhr.responseText;
 				//alert(xhr.responseText);
 			else
-				alert("Błąd podczas ładowania strony!!!\n");
+				alert("Błąd " + xhr.status);
 			}
 		};
 	};
@@ -83,7 +83,6 @@
 		}
 
 		document.body.removeChild(textArea);
-
 	};
 
 

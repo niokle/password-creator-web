@@ -1,5 +1,7 @@
 <html>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <label for="userName">User name :</label>
     <input type="text" id="userName"><br>
     <label for="masterPassword">Master password :</label>
@@ -19,10 +21,9 @@
     <label for="specialSigns">Special signs - !#$%& :</label>
     <input type="checkbox" id="specialSigns" name="special-signs" value="special-signs" checked><br>
     <br>
-	<button type="button" onclick="send()">Create password</button><br>
-	<br>
-	<input type="text" id="pass" readonly><button type="button" onclick="copy()">Copy password</button>
-	
+    <button type="button" onclick="send()">Create password</button><br>
+    <br>
+    <input type="text" id="pass" readonly><button type="button" onclick="copy()">Copy password</button>
 </html>
 
 <script src="jquery-3.5.1.min.js"></script>
