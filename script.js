@@ -1,4 +1,4 @@
-  const apiUrl = 'http://localhost:8080/v1/pass';
+  const apiUrl = 'http://140.238.222.211:8080/v1/pass';
  
   var userName = document.getElementById("userName");
   var masterPassword = document.getElementById("masterPassword");
@@ -12,6 +12,7 @@
   var numbers = document.getElementById("numbers");
   var specialSigns = document.getElementById("specialSigns");
   var passField = document.getElementById("pass");
+  var sendButton = document.getElementById("sendButton");
 	
 	function send() {
 		var data = {"userName":userName.value,
@@ -81,9 +82,42 @@
 		} catch (err) {
 			console.error('Fallback: Oops, unable to copy', err);
 		}
-
 		document.body.removeChild(textArea);
+		clear();
 	};
+
+	function clear() {
+		userName.value = "";
+  		appName.value = "";
+        appAddress.value = "";
+  		numberOfSigns.value = "16";
+  		numberOfSignsValue.value = "16";
+  		smallLetters.checked = true;
+  		largeLetters.checked = true;
+  		numbers.checked = true;
+  		specialSigns.checked = true;
+		passField.value = "";
+		shouldMasterPasswordClear = true;
+	};
+
+	function clearMasterPassword() {
+		masterPassword.value = "";
+		showPassword.checked = false;
+		showMasterPassword();
+	};
+
+	function checkParameters() {
+		if (!smallLetters.checked && !largeLetters.checked && !numbers.checked && !specialSigns.checked) {
+			//smallLetters.style.backgroundColor.borderColor = "red";
+			sendButton.disabled = true;
+		} else {
+			sendButton.disabled = false;
+		}
+	};
+
+
+
+
 
 
 
