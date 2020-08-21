@@ -49,8 +49,10 @@
 	function showMasterPassword() {
 		if (masterPassword.type === "password") {
 			masterPassword.type = "text";
+			showPassword.value = "Hide password"
 		} else {
 			masterPassword.type = "password";
+			showPassword.value = "Show password"
 		}
 	};
 
@@ -102,8 +104,8 @@
 
 	function clearMasterPassword() {
 		masterPassword.value = "";
-		showPassword.checked = false;
-		showMasterPassword();
+		showPassword.value = "Show password";
+		masterPassword.type = "password";
 	};
 
 	function checkParameters() {
