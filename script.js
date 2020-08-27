@@ -1,4 +1,4 @@
-  const apiUrl = 'http://140.238.222.211:8080/v1/pass';
+  const apiUrl = 'https://140.238.222.211:8443/v1/pass';
  
   var userName = document.getElementById("userName");
   var masterPassword = document.getElementById("masterPassword");
