@@ -1,4 +1,9 @@
-  const apiUrl = 'https://140.238.222.211:8443/v1/pass';
+/* if(window.location.protocol != 'https:') {
+      location.href = location.href.replace("http://", "https://");
+    }
+*/
+
+  const apiUrl = 'https://api.klenio.com:8083/v1/pass';
  
   var userName = document.getElementById("userName");
   var masterPassword = document.getElementById("masterPassword");
@@ -14,7 +19,8 @@
   var passField = document.getElementById("pass");
   var sendButton = document.getElementById("sendButton");
 	
-	function send() {
+  	function send() {
+
 		var data = {"userName":userName.value,
 					"masterPassword":masterPassword.value,
 					"appName":appName.value,
@@ -26,25 +32,24 @@
 					"specialSigns":specialSigns.checked};
 		
 		var json = JSON.stringify(data);
-		
-		var xhr = new XMLHttpRequest();
-		//xhr.responseType = "json";
-	
-		xhr.open('POST', apiUrl, true);
-		xhr.setRequestHeader("Content-Type", "application/json", "Access-Control-Allow-Origin: *");
 
-		xhr.send(json); 
-
-		xhr.onreadystatechange = function (aEvt) {
-		if (xhr.readyState == 4) {
-			if(xhr.status == 200)
-				passField.value = xhr.responseText;
-				//alert(xhr.responseText);
-			else
-				alert("Błąd " + xhr.status);
+		$.ajax({
+			type: "POST",
+			url: apiUrl,
+			data: json,
+			contentType: "application/json; charset=utf-8",
+			dataType: "text",
+			headers: {
+				'Access-Control-Allow-Origin':'*'
+			},
+          	success: function (msg) {
+				passField.value = msg;
+			},
+			error: function() {
+				alert("error")
 			}
-		};
-	};
+		});	
+	  };
 
 	function showMasterPassword() {
 		if (masterPassword.type === "password") {
